@@ -5,18 +5,13 @@ package silvano.riz.perfevaluation;
  */
 public class Tests {
 
+    static {
+        System.loadLibrary("perf");
+    }
+
     public enum TestsId{
         TEST_HELLO_WORLD_STRING,
         TEST_FOR_100_SUM;
-    }
-
-    /* this is used to load the 'hello-jni' library on application
-     * startup. The library has already been unpacked into
-     * /data/data/com.example.hellojni/lib/libhello-jni.so at
-     * installation time by the package manager.
-     */
-    static {
-        System.loadLibrary("perf");
     }
 
     private void Tests(){};

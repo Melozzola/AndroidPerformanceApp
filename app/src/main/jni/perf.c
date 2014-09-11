@@ -20,7 +20,7 @@
 #include <android/log.h>
 #include <jni.h>
 
-jstring Java_silvano_riz_perfevaluation_Tests_getCompileABI( JNIEnv* env, jobject thiz ) {
+jstring Java_silvano_riz_perfevaluation_PerfEvaluationApp_getCompileABI( JNIEnv* env, jobject thiz ) {
 #if defined(__arm__)
   #if defined(__ARM_ARCH_7A__)
     #if defined(__ARM_NEON__)

@@ -5,11 +5,18 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 /**
  * Created by mele on 10/09/2014.
  */
 public class PerfEvaluationApp extends Application{
+
+    private static final String LOG_TAG = PerfEvaluationApp.class.getSimpleName();
+
+    static {
+        System.loadLibrary("perf");
+    }
 
     private static Context appContext;
     private static Preferences preferences;
@@ -20,6 +27,8 @@ public class PerfEvaluationApp extends Application{
 
         PerfEvaluationApp.appContext = getApplicationContext();
         updatePreferences();
+
+        Log.i(LOG_TAG, getCompileABI());
     }
 
     public static PowerManager getPowerManager(){
@@ -40,6 +49,8 @@ public class PerfEvaluationApp extends Application{
     public static synchronized Preferences getPreferences(){
         return preferences;
     }
+
+    private native String getCompileABI();
 
     static class Preferences{
         final boolean runJniTest;
